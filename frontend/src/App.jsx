@@ -5,17 +5,21 @@ import Login from './pages/Login'
 import { Route } from 'react-router-dom'
 import SignUp from './pages/SignUp'
 import Home from './pages/Home'
+import RefreshHandler from './refreshHandler'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const PrivateRoute = ({ element }) => {
+    return isAuthenticated ? element : <Navigate to="/login" />;
+  }
   return (
-    <div>
+    <div className='App'>
+      <RefreshHandler setIsAuthenticated={setIsAuthenticated} />  
       <Routes>
         <Route path="/" element={<Navigate to = "/login" />} />
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<SignUp/>}/>
-        <Route path="/home" element={<Home/>}/>
+        <Route path="/home" element={<PrivateRoute element={<Home/>} />}/>
       </Routes>
     </div>
   )
