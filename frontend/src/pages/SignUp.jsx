@@ -56,46 +56,57 @@ const SignUp = () => {
     }
     console.log("signupInfo", signupInfo);
   return (
-    <div className='container'>
-        <h1>Sign Up</h1> 
-      <form onSubmit={handleSignup}>
-        <div>
-            <label htmlFor="name">Name</label>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-10 border border-gray-200 relative overflow-hidden">
+        <div className="absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-tr from-blue-400 to-pink-400 opacity-20 rounded-full blur-2xl z-0"></div>
+        <h1 className="text-3xl font-extrabold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-pink-500 drop-shadow-lg">Sign Up</h1>
+        <form className="space-y-7 z-10 relative" onSubmit={handleSignup}>
+          <div>
+            <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">Name</label>
             <input
-                onChange={handleChange} 
-                type="text"
-                name="name" 
-                placeholder='Enter your name...'
-                value={signupInfo.name}
+              onChange={handleChange}
+              type="text"
+              name="name"
+              placeholder="Enter your name..."
+              value={signupInfo.name}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50 text-gray-800 shadow-sm transition"
             />
-        </div>
-        <div>
-            <label htmlFor="email">Email</label>
+          </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
             <input
-                onChange={handleChange} 
-                type="email"
-                name="email" 
-                placeholder='Enter your email...'
-                value={signupInfo.email}
+              onChange={handleChange}
+              type="email"
+              name="email"
+              placeholder="Enter your email..."
+              value={signupInfo.email}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50 text-gray-800 shadow-sm transition"
             />
-        </div>
-        <div>
-            <label htmlFor="password">Password</label>
+          </div>
+          <div>
+            <label htmlFor="password" className="block text-sm font-semibold text-gray-700 mb-2">Password</label>
             <input
-                onChange={handleChange}
-                type="password"
-                name="password"
-                placeholder='Enter your password...'
-                value={signupInfo.password}
+              onChange={handleChange}
+              type="password"
+              name="password"
+              placeholder="Enter your password..."
+              value={signupInfo.password}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 bg-gray-50 text-gray-800 shadow-sm transition"
             />
-        </div>
-        <button type='submit'>Sign Up</button>
-      <span>
-        Already have an account ?
-          <Link to="/login">Login</Link>
-      </span>
-      </form>
-      <ToastContainer />
+          </div>
+          <button
+            type="submit"
+            className="w-full py-3 px-4 bg-gradient-to-r from-blue-500 to-pink-500 text-white font-bold rounded-lg shadow-lg hover:from-pink-500 hover:to-blue-500 transition text-lg tracking-wide mt-2"
+          >
+            Sign Up
+          </button>
+          <span className="block text-center mt-6 text-sm text-gray-600">
+            Already have an account?
+            <Link to="/login" className="text-pink-600 hover:underline ml-1 font-semibold">Login</Link>
+          </span>
+        </form>
+        <ToastContainer />
+      </div>
     </div>
   )
 }
