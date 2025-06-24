@@ -9,7 +9,7 @@ const RefreshHandler = ({setIsAuthenticated}) => {
         if(localStorage.getItem('token') && localStorage.getItem('loggedInUser')) {
             setIsAuthenticated(true);
             if(location.pathname === '/login' || location.pathname === '/' || location.pathname === '/signup') {
-                navigate('/home', { replace: false });
+                navigate('/dashboard', { replace: false });
             }
         }
     },[location, navigate, setIsAuthenticated]);
