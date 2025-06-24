@@ -19,6 +19,7 @@ import {
   Sun,
 } from "lucide-react"
 import { useNavigate } from "react-router-dom";
+import Logo from '../assets/Logo.png'
 
 const Button = ({ children, variant = "primary", size = "md", className = "", onClick, ...props }) => {
   const baseClasses =
@@ -107,10 +108,8 @@ const LandingPage = () => {
       {/* Header */}
       <header className="px-4 lg:px-6 h-16 flex items-center border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50 dark:bg-gray-900/80 dark:border-gray-800">
         <a href="/" className="flex items-center justify-center gap-2">
-          <div className="w-8 h-8 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center">
-            <BarChart3 className="w-5 h-5 text-white" />
-          </div>
-          <span className="font-bold text-xl dark:text-white">ExcelViz</span>
+          <img src={Logo} alt="Logo" className="w-8 h-8 rounded-lg" />
+          <span className="font-bold text-xl dark:text-white">DataVizual</span>
         </a>
         <nav className="ml-auto flex gap-4 sm:gap-6 items-center">
           <button
@@ -125,13 +124,6 @@ const LandingPage = () => {
           >
             How It Works
           </button>
-          <button
-            onClick={() => scrollToSection("pricing")}
-            className="text-sm font-medium hover:text-emerald-600 transition-colors dark:text-gray-300 dark:hover:text-emerald-400"
-          >
-            Pricing
-          </button>
-          <ThemeToggle />
           <Button variant="outline" size="sm" className="hidden sm:flex" onClick={() => navigate("/login")}>Sign In</Button>
           <Button size="sm" onClick={() => navigate("/login")}>Get Started</Button>
         </nav>
